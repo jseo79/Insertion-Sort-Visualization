@@ -6,13 +6,13 @@ import java.util.Random;
 public class InsertionSort extends JPanel {
     private static final long serialVersionUID = 1L;
 
-    //Dimensions of window
+    //Dimensions of the window
     private final int WIDTH = 1000;
     private final int HEIGHT = WIDTH * 9 / 16;
 
-    //Variables used for the bars
+    //Variables used for the bar dimensions
     private final int SIZE = 100;
-    private final double BAR_WIDTH = (double)WIDTH / SIZE;
+    private final double BAR_WIDTH = WIDTH / SIZE;
     private double[] bar_height = new double[SIZE];
 
     //Used for shuffling and sorting
@@ -52,6 +52,7 @@ public class InsertionSort extends JPanel {
     /*
      * Sorts the bars in the array
      * Uses the Insertion Sort algorithm
+     * Can change the logic here to mimic a different sorting Algorithm
      */
     private void initSorter() {
         sorter = new SwingWorker<Void, Void>() {
@@ -65,7 +66,7 @@ public class InsertionSort extends JPanel {
                         traversing_index--;
 
                         //Used so you can see the sorting
-                        Thread.sleep(1);
+                        Thread.sleep(5);
                         repaint();
                     }
                 }
@@ -78,7 +79,7 @@ public class InsertionSort extends JPanel {
     }
 
     /*
-     * Shuffles the bars in a random order
+     * Shuffles the bars in a random order at the beginning
      */
     private void initShuffler() {
         shuffler = new SwingWorker<Void, Void>() {
@@ -90,10 +91,9 @@ public class InsertionSort extends JPanel {
                     swap(i , random_index);
 
                     //Used so you can see the shuffling
-                    Thread.sleep(10);
+                    Thread.sleep(20);
                     repaint();
                 }
-
                 return null;
             }
 
